@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Login Page</title>
+   
+
+
+</head>
+<body>
+
+  <%- include ("partials/navbar.ejs") %>
+
+ 
+      
+  <div class="container mt-4 d-flex justify-content-center">
+    <div class="card" style="width: 35rem;">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        
+        <form action="/auth/login" method="POST">
+          <div class="form-group">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="username" name="username">
+    </div>
+    
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-dark">Login</button>
+  </form>
+
+
+   </div> 
+
+
+    </div>
+</div>
+  
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-QF2n5OH5LYKt8rvVofOobHuwAuhfCC3rBFEDsC1iH4LkAJGNRgZPl0PaQa7jxldK" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-rLg94ND1oANqE7HEnoWSAwQsET0SyvD8ZNPzv0x30GzA03biEnxPSy8LYCfr26Jv" crossorigin="anonymous"></script>
+
+   
+
+</body>
+</html>
