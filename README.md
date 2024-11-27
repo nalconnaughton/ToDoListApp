@@ -12,7 +12,7 @@ Session management.
 
 # Installation
 1. clone repo
-git clone- https://github.com/nalconnaughton/To-Do-List-App.git
+git clone- https://github.com/nalconnaughton/ToDoListApp.git
 
 2. install dependencies
    npm install nodemon express ejs mysql2 express-session body-parser playwright npx
