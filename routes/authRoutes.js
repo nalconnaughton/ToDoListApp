@@ -4,7 +4,7 @@ const authController = require('../controllers/authController');
 
 
 
-router.get('/login', (req, res) => {
+router.get('views/login', (req, res) => {
     res.render('login.ejs');
 });
 

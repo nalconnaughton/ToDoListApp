@@ -18,7 +18,7 @@ exports.register = (req, res) => {
                 return res.status(500).send('Error with server, Could not register new user.');
             }
             console.log('New User has been registered', results);
-            res.redirect('/auth/login'); //Sends you to login page after registered
+            res.redirect('/views/login'); //Sends you to login page after registered
         }
     );
 };
@@ -52,7 +52,7 @@ exports.login = (req, res) => {
             // Stores the users info in session
             req.session.userId = user.id;
             console.log('User has logged in', user);
-            res.redirect('/pages/todolist'); // Redirect to the to-do list app page
+            res.redirect('/views/todolist..ejs'); // Redirect to the to-do list page
         }
     );
 };

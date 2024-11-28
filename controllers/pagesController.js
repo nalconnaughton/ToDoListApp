@@ -35,6 +35,6 @@ exports.deleteTodo = (req, res) => {
       return res.status(500).send('Error with deleting the to-do');
     }
 
-    res.redirect('/pages/todolist');
+    res.redirect('/views/todolist');
   });
 };
