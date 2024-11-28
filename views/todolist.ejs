@@ -18,7 +18,7 @@
         <!-- New To-Do input -->
         <div class="input-group my-5">
             <input type="text" id="todoInput" class="form-control" placeholder="Enter a new To-Do">
-            <button class="btn btn-primary btn btn-dark" id="addTodoButton">Add your To-Do</button>
+            <button class="btn btn-primary btn btn-dark" id="addTodoBtn">Add your To-Do</button>
         </div>
         
         <!-- To-Do List -->
@@ -28,15 +28,15 @@
     </div>
 
     <script>
-        //Button/App functions
+        //Button/App functions to make it interactive 
         // DOM elements
        
-        const addTodoButton = document.getElementById('addTodoButton');
+        const addTodoBtn = document.getElementById('addTodoBtn');
         const todoList = document.getElementById('todoList');
         const todoInput = document.getElementById('todoInput');
     
         // add a new to-do to list
-        addTodoButton.addEventListener('click', () => {
+        addTodoBtn.addEventListener('click', () => {
             const todoText = todoInput.value.trim();
     
             if (todoText !== "") {

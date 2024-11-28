@@ -1,22 +1,14 @@
 
 const express = require('express');
 const router = express.Router();
+const pagesController = require('../controllers/pagesController');
 
 module.exports = router;
 
-router.get('/', (req, res) => {
+router.get('/index', (req, res) => {
     res.render('index');
 });
 
-router.get('/register', (req, res) => {
-    res.render('register.ejs');
-});
-
-router.get('/login', (req, res) => {
-    res.render('login.ejs');
-});
-
-router.get('/todolist', (req, res) => {
-    res.render('todolist.ejs');
-});
-
+router.get('/todolist', pagesController.getTodos);
+router.post('/todolist', pagesController.addTodo);
+router.post('/todolist/delete', pagesController.deleteTodo);

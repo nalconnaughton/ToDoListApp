@@ -1,9 +1,14 @@
 //express librbary for server
 const express = require('express');
 const mysql = require('mysql2');
+const db = require('./db')
 const path = require('path');
+const authRoutes = require('./routes/authRoutes');
+const pagesRoutes = require('./routes/pagesRoutes');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+
+
 
 const app = express();
 
@@ -11,6 +16,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
+app.use(express.json());
 
 //session keys to track activity of the user
 app.use(session({
@@ -56,7 +62,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.render('index.ejs')
+    res.redirect('/pages/index.ejs');
 });
 
 

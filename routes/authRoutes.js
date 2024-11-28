@@ -1,11 +1,20 @@
 const express = require('express');
-const authController = require('../controllers/authController');
 const router = express.Router();
+const authController = require('../controllers/authController');
 
-router.post('/login', (req, res) => {
-    const { username, password } = req.body;
-    // Add your authentication logic here
-    res.send('Your Login has been successful.');
+
+
+router.get('/login', (req, res) => {
+    res.render('login.ejs');
 });
+
+router.post('/login', authController.login);
+
+router.get('/register', (req, res) => {
+    res.render('register.ejs');
+});
+
+router.post('/register', authController.register);
+
 
 module.exports = router;
