@@ -20,7 +20,7 @@ git clone- https://github.com/nalconnaughton/ToDoListApp.git
 # To start application
 run in the command line: node app.js
 
-open web browser, enter: http://localhost:3000 (HomePage) or http://localhost:3000/register (to register page)
+open web browser, enter: http://localhost:3000/login (login page) or http://localhost:3000/register (to register page)
 
 # Scripts
 1. Testing
