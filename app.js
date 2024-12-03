@@ -1,10 +1,7 @@
 //express librbary for server
 const express = require('express');
 const mysql = require('mysql2');
-const db = require('./db')
 const path = require('path');
-const authRoutes = require('./routes/authRoutes');
-const pagesRoutes = require('./routes/pagesRoutes');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
@@ -30,10 +27,9 @@ app.use(session({
 //connects to MySQL database
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'nalconnaughton',
     password: 'Nal1234',
-    database: 'todolistapp'
-
+    database: 'todolistapp',
 });
 
 module.exports = db;
@@ -47,6 +43,7 @@ db.connect( (error) => {
     }
 
 });
+
 
 //setting the routes
 const authRoutes = require('./routes/authRoutes'); // will correct the path if its incorrect
@@ -62,7 +59,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.redirect('/pages/index.ejs');
+    res.redirect('index.ejs')
 });
 
 
@@ -87,5 +84,5 @@ app.get('/todolist', (req, res) => {
 
 app.listen(3000, () => {
     console.log("Server has now started on Port 3000");
-});
 
+});

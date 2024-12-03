@@ -1,5 +1,5 @@
 const db = require('../db');
-
+const Todo = require('../models/todoModel');
 
 // Rendering To-Do List Page
 exports.renderTodo = (req, res) => {

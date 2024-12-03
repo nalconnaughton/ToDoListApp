@@ -1,14 +1,12 @@
-
 const express = require('express');
+const { renderTodo, deleteTodo } = require('../controllers/pagesController.js');
+
 const router = express.Router();
-const pagesController = require('../controllers/pagesController');
+
+// Renders the to-do list
+router.get('/todolist', renderTodo);
+
+//deleting a to-do
+router.post('/todolist/delete', deleteTodo);
 
 module.exports = router;
-
-router.get('/', (req, res) => {
-    res.render('index');
-});
-
-router.get('/todolist', pagesController.getTodo);
-router.post('/todolist', pagesController.addTodo);
-router.post('/todolist/delete', pagesController.deleteTodo);
