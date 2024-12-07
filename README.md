@@ -15,7 +15,7 @@ Session management.
 git clone- https://github.com/nalconnaughton/ToDoListApp.git
 
 2. install dependencies
-   npm install nodemon express ejs mysql2 mysql express-session body-parser playwright npx
+   npm install nodemon express ejs mysql2 mysql express-session body-parser bcryptjs bcrypt playwright npx
 
 # To start application
 run in the command line: node app.js
