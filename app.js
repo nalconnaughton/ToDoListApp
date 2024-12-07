@@ -4,6 +4,7 @@ const mysql = require('mysql2');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const bcrypt = require('bcryptjs');
 
 
 

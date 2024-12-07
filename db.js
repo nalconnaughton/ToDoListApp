@@ -23,14 +23,18 @@ const initializeDatabase = () => {
     const userRole = 'user';
 
     db.query(`
-        CREATE TABLE IF NOT EXISTS users (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(255) UNIQUE NOT NULL,
-            email VARCHAR(255) NOT NULL,
-            password VARCHAR(255) NOT NULL,
-            role ENUM('admin', 'user') DEFAULT '${userRole}'
-        )
-    `, (err) => {
+        CREATE TABLEIF NOT EXISTS  users(
+        user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    failed_login_attempts INT DEFAULT 0,
+    is_locked BOOLEAN DEFAULT FALSE,
+    role VARCHAR(50) DEFAULT 'user',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    role ENUM('admin', 'user') DEFAULT '${userRole}')`,
+     (err) => {
         if (err) {
             console.error('Error with creating the users table:', err.message);
         } else {
@@ -39,19 +43,42 @@ const initializeDatabase = () => {
     });
 
     db.query(`
-        CREATE TABLE IF NOT EXISTS todo (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            todo VARCHAR(255) NOT NULL,
-            user_id INT NOT NULL,
-            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-        )
-    `, (err) => {
+        CREATE TABLE IF NOT EXISTS Todo(
+           todo_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    todo_title TEXT NOT NULL,
+    todo_description TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
+    )`, 
+    (err) => {
         if (err) {
             console.error('Error with creating the todo table:', err.message);
         } else {
             console.log('Todo table is now created.');
         }
     });
+
+    db.query(`
+        CREATE TABLE IF NOT EXISTS Logs (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    action TEXT NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ip_address VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE SET NULL
+    )`, 
+    (err) => {
+        if (err) {
+            console.error('Error with creating logs:', err.message);
+        } else {
+            console.log('Logs is now created.');
+        }
+    });
+
+
+
 };
 
 // Initialize the database
