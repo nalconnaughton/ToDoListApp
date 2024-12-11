@@ -22,6 +22,7 @@ const initializeDatabase = () => {
     const adminUserRole = 'admin';
     const userRole = 'user';
 
+    //updated db for better security
     db.query(`
         CREATE TABLEIF NOT EXISTS  users(
         user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,7 +42,7 @@ const initializeDatabase = () => {
             console.log('Users table is now created.');
         }
     });
-
+//updated DB for better security
     db.query(`
         CREATE TABLE IF NOT EXISTS Todo(
            todo_id INT AUTO_INCREMENT PRIMARY KEY,

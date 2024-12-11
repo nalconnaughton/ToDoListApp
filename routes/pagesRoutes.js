@@ -1,7 +1,8 @@
 const express = require('express');
+const router = express.Router();
+
 const { renderTodo, deleteTodo } = require('../controllers/pagesController.js');
 
-const router = express.Router();
 
 // Renders the to-do list
 router.get('/todolist', renderTodo);
