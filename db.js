@@ -60,23 +60,6 @@ const initializeDatabase = () => {
         }
     });
 
-    db.query(`
-        CREATE TABLE IF NOT EXISTS Logs (
-    log_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    action TEXT NOT NULL,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    ip_address VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE SET NULL
-    )`, 
-    (err) => {
-        if (err) {
-            console.error('Error with creating logs:', err.message);
-        } else {
-            console.log('Logs is now created.');
-        }
-    });
-
 
 
 };
