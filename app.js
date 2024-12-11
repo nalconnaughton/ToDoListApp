@@ -5,8 +5,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-
+require('dotenv').config()
 
 
 const app = express();
@@ -69,8 +70,10 @@ app.get('/register', (req, res) => {
     res.render('register.ejs')
 });
 
+
 app.get('/login', (req, res) => {
-    res.render('login.ejs')
+    res.render('login')
+
 });
 
 app.get('/todolist', (req, res) => {
