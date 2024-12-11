@@ -6,9 +6,9 @@ test.beforeEach(async ({ page }) => {
 });
 
 const TODO_ITEMS = [
-  'buy some cheese',
-  'feed the cat',
-  'book a doctors appointment'
+  'buy food',
+  'watch show',
+  'cook dinner'
 ];
 
 test.describe('New Todo', () => {
