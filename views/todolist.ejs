@@ -43,10 +43,7 @@
                 // creates a new to-do to list
                 const listItem = document.createElement('li');
                 listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
-                listItem.innerHTML = `
-                    ${todoText}
-                    <button class="btn btn-danger btn-sm deleteTodo">Delete</button>
-                `;
+                listItem.innerHTML = ` ${todoText} <button class="btn btn-danger btn-sm deleteTodo">Delete</button>`;
     
                 // will append a to-do to list
                 todoList.appendChild(listItem);
