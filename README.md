@@ -26,4 +26,4 @@ open web browser, enter: http://localhost:3000/login (login page) or http://loca
 # Scripts
 1. Testing
 
-To run test: npm run test
+To run test: npm run logintest.js or todolisttest.js
